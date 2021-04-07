@@ -28,18 +28,6 @@ resource "aws_network_interface" "interface2" {
   security_groups = [aws_security_group.allow_web.id]
 }
 
-
-/* resource "aws_eip" "elastic_ip" {
-  instance                  = aws_instance.DB.id
-  network_interface         = aws_network_interface.interface2.id
-  associate_with_private_ip = "10.0.2.50"
-  vpc                       = true
-  depends_on = [
-    aws_internet_gateway.gw
-  ]
-} */
-
-
 resource "aws_route_table_association" "assoc2" {
   subnet_id      = aws_subnet.network2.id
   route_table_id = aws_route_table.route_table.id
